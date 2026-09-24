@@ -21,7 +21,7 @@
   }
 
   *,*::before,*::after{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
   body{
     margin:0;
     background:var(--bg);
@@ -318,6 +318,21 @@
   }
   .section-head.wide-lead{ max-width:82ch; }
   .section-head.wide-lead p{ max-width:82ch; }
+
+  /* Below this width the vw-based one-row sizing can't reliably keep long
+     headlines on a single line without overflowing — fall back to the
+     normal wrapping heading styles used everywhere else on the site. */
+  @media (max-width:700px){
+    .section-head h2.one-row{
+      white-space:normal;
+      font-size:clamp(1.6rem,6vw,2.4rem);
+    }
+    .page-hero h1.one-row{
+      white-space:normal;
+      max-width:18ch;
+      font-size:clamp(1.9rem,7vw,3.2rem);
+    }
+  }
 
   /* ---------- SOLO / STANDALONE CARD (odd leftover in a card-grid row) ---------- */
   .info-card-solo-wrap{ display:flex; justify-content:center; margin-top:-1px; }
