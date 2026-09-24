@@ -421,6 +421,9 @@
     border-left:1px solid var(--line);
   }
   .card-grid.cols-3{ grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); }
+  @media (min-width:700px){
+    .card-grid.services-grid{ grid-template-columns:repeat(3, 1fr); }
+  }
   .info-card{
     background:var(--bg);
     padding:28px 24px;
@@ -723,7 +726,7 @@
         <h2 class="one-row">Six connected capabilities.</h2>
         <p>Together, they take clients from strategic definition through content, distribution, optimization and organizational learning.</p>
       </div>
-      <div class="card-grid">
+      <div class="card-grid services-grid">
         <div class="info-card">
           <div class="info-num mono">01</div>
           <h3>Strategy and Consulting</h3>
