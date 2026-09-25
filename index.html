@@ -1381,4 +1381,25 @@
   })();
 </script>
 
+<script>
+  (function(){
+    var canHover = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!canHover || reduceMotion) return;
+
+    var strength = 0.35;
+    document.querySelectorAll('.btn').forEach(function(btn){
+      btn.addEventListener('mousemove', function(e){
+        var r = btn.getBoundingClientRect();
+        var x = e.clientX - r.left - r.width / 2;
+        var y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = 'translate(' + (x * strength) + 'px,' + (y * strength) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function(){
+        btn.style.transform = 'translate(0,0)';
+      });
+    });
+  })();
+</script>
+
 </body></html>
