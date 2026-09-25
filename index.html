@@ -648,6 +648,36 @@
       scroll-behavior:auto !important;
     }
   }
+
+  /* ---------- CUSTOM CURSOR ---------- */
+  .cursor-dot, .cursor-ring{
+    position:fixed; top:0; left:0;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    transform:translate(-50%,-50%);
+    will-change:transform;
+  }
+  .cursor-dot{
+    width:6px; height:6px;
+    background:var(--accent);
+  }
+  .cursor-ring{
+    width:34px; height:34px;
+    border:1px solid var(--accent);
+    opacity:.7;
+    transition:width .2s ease, height .2s ease, opacity .2s ease, border-color .2s ease, background .2s ease;
+  }
+  .cursor-ring.is-hover{
+    width:56px; height:56px;
+    background:rgba(255,75,62,.12);
+    opacity:1;
+  }
+  @media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+    body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button{
+      cursor:none;
+    }
+  }
 </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1300,5 +1330,55 @@
   })();
 </script>
 
+<script>
+  (function(){
+    var canHover = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!canHover || reduceMotion) return;
+
+    document.body.classList.add('has-custom-cursor');
+
+    var dot = document.createElement('div');
+    dot.className = 'cursor-dot';
+    var ring = document.createElement('div');
+    ring.className = 'cursor-ring';
+    document.body.appendChild(ring);
+    document.body.appendChild(dot);
+
+    var mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+    var ringX = mouseX, ringY = mouseY;
+
+    window.addEventListener('mousemove', function(e){
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      dot.style.transform = 'translate(' + mouseX + 'px,' + mouseY + 'px) translate(-50%,-50%)';
+    });
+
+    function tick(){
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      ring.style.transform = 'translate(' + ringX + 'px,' + ringY + 'px) translate(-50%,-50%)';
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    var hoverSelector = 'a, button, .btn, [data-route-link], input, textarea';
+    document.addEventListener('mouseover', function(e){
+      if (e.target.closest(hoverSelector)) ring.classList.add('is-hover');
+    });
+    document.addEventListener('mouseout', function(e){
+      if (e.target.closest(hoverSelector)) ring.classList.remove('is-hover');
+    });
+
+    document.addEventListener('mouseleave', function(){
+      dot.style.opacity = '0';
+      ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', function(){
+      dot.style.opacity = '1';
+      ring.style.opacity = '';
+    });
+  })();
+</script>
 
 </body></html>
