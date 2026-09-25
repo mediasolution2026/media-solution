@@ -720,7 +720,7 @@
           <div class="hero-float-inner"><span class="hero-float-dot"></span>Campaign Live</div>
         </div>
         <div class="hero-float hero-float-2" data-reveal style="--reveal-delay:.6s" aria-hidden="true">
-          <div class="hero-float-inner"><span class="hero-float-dot accent"></span>+24% Reach</div>
+          <div class="hero-float-inner"><span class="hero-float-dot accent"></span>+<span class="count-up" data-count-to="24">0</span>% Reach</div>
         </div>
         <div class="hero-float hero-float-3" data-reveal style="--reveal-delay:.75s" aria-hidden="true">
           <div class="hero-float-inner"><span class="hero-float-dot"></span>Media Plan — Approved</div>
@@ -1399,6 +1399,47 @@
         btn.style.transform = 'translate(0,0)';
       });
     });
+  })();
+</script>
+
+<script>
+  (function(){
+    var els = document.querySelectorAll('.count-up');
+    if (!els.length) return;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(el){
+      var target = parseFloat(el.getAttribute('data-count-to'));
+      if (reduceMotion || !('requestAnimationFrame' in window)){
+        el.textContent = target;
+        return;
+      }
+      var duration = 1200;
+      var start = null;
+      function step(ts){
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+    }
+
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting){
+            animate(entry.target);
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:.6});
+      els.forEach(function(el){ io.observe(el); });
+    } else {
+      els.forEach(animate);
+    }
   })();
 </script>
 
