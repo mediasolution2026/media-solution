@@ -675,3 +675,31 @@
       cursor:none;
     }
   }
+
+/* ---------- LANGUAGE / GEORGIAN ---------- */
+/* The brand fonts have no Georgian glyphs; borrow Noto Sans Georgian for that range only (per-glyph fallback). */
+@font-face{font-family:"Unbounded";font-style:normal;font-weight:400 900;font-display:swap;src:url(https://fonts.gstatic.com/s/notosansgeorgian/v48/PlIVFke5O6RzLfvNNVSitxkr76PRHBC4Ytyq-Gof7PUs4S7zcGyUkdjo.woff2) format("woff2");unicode-range:U+0589,U+10A0-10FF,U+1C90-1CBA,U+1CBD-1CBF,U+205A,U+2D00-2D2F,U+2E31}
+@font-face{font-family:"Archivo";font-style:normal;font-weight:400 900;font-display:swap;src:url(https://fonts.gstatic.com/s/notosansgeorgian/v48/PlIVFke5O6RzLfvNNVSitxkr76PRHBC4Ytyq-Gof7PUs4S7zcGyUkdjo.woff2) format("woff2");unicode-range:U+0589,U+10A0-10FF,U+1C90-1CBA,U+1CBD-1CBF,U+205A,U+2D00-2D2F,U+2E31}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:400 900;font-display:swap;src:url(https://fonts.gstatic.com/s/notosansgeorgian/v48/PlIVFke5O6RzLfvNNVSitxkr76PRHBC4Ytyq-Gof7PUs4S7zcGyUkdjo.woff2) format("woff2");unicode-range:U+0589,U+10A0-10FF,U+1C90-1CBA,U+1CBD-1CBF,U+205A,U+2D00-2D2F,U+2E31}
+
+.lang-switch{
+  font-family:"JetBrains Mono",monospace;
+  font-size:.72rem; letter-spacing:.1em; line-height:1;
+  text-decoration:none; color:var(--ink-dim);
+  border:1px solid var(--line-strong); border-radius:var(--radius);
+  padding:9px 10px;
+  transition:color .15s ease, border-color .15s ease;
+}
+.lang-switch:hover{ color:var(--ink); border-color:var(--ink-dim); }
+
+/* Georgian has no letter case and reads best without tracking */
+html[lang="ka"] *{ text-transform:none !important; letter-spacing:normal !important; }
+html[lang="ka"] .page-hero h1.one-row{ white-space:normal; max-width:18ch; font-size:clamp(1.9rem,4.4vw,3.2rem); }
+
+/* Long Georgian words must never push the page wider than the screen */
+html[lang="ka"] h1, html[lang="ka"] h2, html[lang="ka"] h3, html[lang="ka"] h4, html[lang="ka"] p, html[lang="ka"] li{ overflow-wrap:break-word; hyphens:auto; }
+@media (max-width:700px){
+  html[lang="ka"] .page-hero h1, html[lang="ka"] .page-hero h1.one-row{ font-size:clamp(1.55rem,7.2vw,2.2rem); }
+  html[lang="ka"] .section-head h2{ font-size:clamp(1.35rem,6.4vw,1.9rem); }
+  html[lang="ka"] .hero h1{ font-size:clamp(1.8rem,8.4vw,2.8rem); }
+}
