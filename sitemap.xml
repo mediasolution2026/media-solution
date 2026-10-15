@@ -1,101 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mediasolution.ge/</loc>
     <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/"/>
-  </url>
-  <url>
-    <loc>https://mediasolution.ge/ka/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/"/>
   </url>
   <url>
     <loc>https://mediasolution.ge/about/</loc>
     <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/about/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/about/"/>
-  </url>
-  <url>
-    <loc>https://mediasolution.ge/ka/about/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/about/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/about/"/>
   </url>
   <url>
     <loc>https://mediasolution.ge/services/</loc>
     <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/services/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/services/"/>
-  </url>
-  <url>
-    <loc>https://mediasolution.ge/ka/services/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/services/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/services/"/>
   </url>
   <url>
     <loc>https://mediasolution.ge/careers/</loc>
     <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/careers/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/careers/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/careers/"/>
-  </url>
-  <url>
-    <loc>https://mediasolution.ge/ka/careers/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/careers/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/careers/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/careers/"/>
   </url>
   <url>
     <loc>https://mediasolution.ge/contact/</loc>
     <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/contact/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/contact/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/contact/"/>
-  </url>
-  <url>
-    <loc>https://mediasolution.ge/ka/contact/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/contact/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/contact/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/contact/"/>
   </url>
   <url>
     <loc>https://mediasolution.ge/privacy/</loc>
     <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/privacy/"/>
-  </url>
-  <url>
-    <loc>https://mediasolution.ge/ka/privacy/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/privacy/"/>
   </url>
   <url>
     <loc>https://mediasolution.ge/terms/</loc>
     <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/terms/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/terms/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/terms/"/>
-  </url>
-  <url>
-    <loc>https://mediasolution.ge/ka/terms/</loc>
-    <lastmod>2026-10-15</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://mediasolution.ge/terms/"/>
-    <xhtml:link rel="alternate" hreflang="ka" href="https://mediasolution.ge/ka/terms/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://mediasolution.ge/terms/"/>
   </url>
 </urlset>

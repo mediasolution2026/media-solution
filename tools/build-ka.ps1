@@ -2,6 +2,7 @@
 # adds hreflang + language switcher to the English pages, and rewrites sitemap.xml.
 # Keep this file ASCII-only (Windows PowerShell 5.1 reads BOM-less scripts as ANSI).
 # Usage: powershell -File tools\build-ka.ps1   (re-run after editing any English page or ka.txt)
+param([switch]$Hide)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
 $enc = New-Object System.Text.UTF8Encoding($false)
@@ -77,6 +78,24 @@ function TranslateBody($body, $pageKey) {
   })
 }
 
+if ($Hide) {
+  # Unpublish the Georgian version: strip hreflang + switcher from English pages, delete ka/, English-only sitemap.
+  foreach ($p in $pages) {
+    $f = Join-Path $root $p.file
+    $h = ReadText $f
+    $h = [regex]::Replace($h, '<link rel="alternate" hreflang="[^"]+" href="[^"]*">\n?', '')
+    $h = [regex]::Replace($h, '<meta property="og:locale:alternate" content="[^"]*">\n?', '')
+    $h = [regex]::Replace($h, '<a class="lang-switch"[^>]*>KA</a>\n\s*', '')
+    WriteText $f $h
+  }
+  if (Test-Path (Join-Path $root 'ka')) { Remove-Item -Recurse -Force (Join-Path $root 'ka') }
+  $sm = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" + '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "`n"
+  foreach ($p in ($pages | Where-Object { -not $_.noindex })) { $sm += "  <url>`n    <loc>$site$($p.path)</loc>`n    <lastmod>$today</lastmod>`n  </url>`n" }
+  $sm += '</urlset>' + "`n"
+  WriteText (Join-Path $root 'sitemap.xml') $sm
+  'Georgian version hidden: ka/ removed, hreflang and switcher stripped, sitemap is English-only. Run build-ka.ps1 without -Hide to restore.'
+  return
+}
 # ---------- 1. patch English pages (hreflang + language switcher), idempotent ----------
 foreach ($p in $pages) {
   $f = Join-Path $root $p.file
