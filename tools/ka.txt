@@ -579,3 +579,15 @@ mediasolution.ge-ს გამოყენების პირობები 
 
 §desc.work
 Media Solution-ის შერჩეული გამოცდილება და ფოკუსირებული პარტნიორობა.
+
+Clients
+კლიენტები
+
+Brands we've worked with.
+ბრენდები, რომლებთანაც ვმუშაობდით.
+
+Logos of brands Media Solution has worked with: JTI, Škoda, Kia, Mitsubishi Motors, Audi and Situationist
+ბრენდების ლოგოები, რომლებთანაც Media Solution-მა იმუშავა: JTI, Škoda, Kia, Mitsubishi Motors, Audi და Situationist
+
+JTI · Škoda · Kia · Mitsubishi Motors · Audi · Situationist
+JTI · Škoda · Kia · Mitsubishi Motors · Audi · Situationist

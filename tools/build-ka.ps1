@@ -155,6 +155,7 @@ foreach ($p in $pages) {
   $body = TranslateBody $body $k
   $body = $body.Replace('aria-label="Media Solution home"', 'aria-label="' + (Esc (T '{S}aria.home')) + '"')
   $body = $body.Replace('aria-label="Toggle navigation menu"', 'aria-label="' + (Esc (T '{S}aria.menu')) + '"')
+  $body = [regex]::Replace($body, 'alt="([^"]+)"', { param($m) $key = [System.Net.WebUtility]::HtmlDecode($m.Groups[1].Value); if ($dict.ContainsKey($key)) { 'alt="' + (Esc $dict[$key]) + '"' } else { $m.Value } })
   $body = [regex]::Replace($body, 'href="(/(?:about/|services/|careers/|contact/|privacy/|terms/|work/)?)"', { param($m) 'href="' + (KaPath $m.Groups[1].Value) + '"' })
   $enSwitch = '<a class="lang-switch" href="' + $p.path + '" hreflang="en" lang="en" aria-label="English version">EN</a>'
   $body = [regex]::Replace($body, '<a class="lang-switch"[^>]*>KA</a>', { param($m) $enSwitch })
