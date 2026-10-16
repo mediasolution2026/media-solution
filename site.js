@@ -1,3 +1,26 @@
+// Client logo strip: turn the static list into a seamless infinite marquee (skipped for reduced motion)
+(function(){
+  var list = document.querySelector('.clients');
+  if(!list) return;
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var viewport = document.createElement('div');
+  viewport.className = 'clients-marquee';
+  if(list.hasAttribute('data-reveal')){
+    viewport.setAttribute('data-reveal', '');
+    list.removeAttribute('data-reveal');
+  }
+  var track = document.createElement('div');
+  track.className = 'clients-track';
+  list.parentNode.insertBefore(viewport, list);
+  viewport.appendChild(track);
+  track.appendChild(list);
+  for(var i = 0; i < 3; i++){
+    var copy = list.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.querySelectorAll('img').forEach(function(img){ img.alt = ''; img.removeAttribute('loading'); });
+    track.appendChild(copy);
+  }
+})();
 (function(){
   var toggle = document.getElementById('menuToggle');
   var nav = document.getElementById('navlinks');
